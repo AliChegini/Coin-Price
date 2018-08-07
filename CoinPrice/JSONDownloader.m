@@ -20,14 +20,27 @@
     return self;
 }
 
-// method to call the API and download json
+// method to call the API, fetch data, download json
 -(void)callAPI{
     
-    NSError *error;
-    NSString *url_string = [NSString stringWithFormat: @"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF"];
-    NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:url_string]];
-    NSMutableArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    NSLog(@"%@", json);
+    NSString *urlString = @"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF";
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSError *err;
+        NSDictionary *coinDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+        if (err) {
+            NSLog(@"Failed to serialize into JSON: %@", err);
+            return;
+        }
+        
+        NSLog(@"response dictionary: %@", coinDictionary);
+        
+    }] resume];
+    
+    
+    
     
 }
 
