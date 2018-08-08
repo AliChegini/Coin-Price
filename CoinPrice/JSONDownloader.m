@@ -7,6 +7,7 @@
 //
 
 #import "JSONDownloader.h"
+#import "Coin.h"
 
 
 @implementation JSONDownloader
@@ -27,6 +28,7 @@
     
     NSURL *url = [NSURL URLWithString:urlString];
     
+    // Asynchronous netwrok call
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *err;
         NSDictionary *coinDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
@@ -35,12 +37,23 @@
             return;
         }
         
-        NSLog(@"response dictionary: %@", coinDictionary);
+        // Extracting required dictionary consist of time/dates
+        NSDictionary *timeSeries = coinDictionary[@"Time Series (Digital Currency Intraday)"];
+        NSArray *keys = [[timeSeries allKeys] sortedArrayUsingSelector:@selector(compare:)];
+        NSString *mostRecentDate = keys.lastObject;
+        NSDictionary *info = timeSeries[mostRecentDate];
+        NSString *price = info[@"1a. price (USD)"];
+        NSLog(@"%@ - %@", mostRecentDate, price);
+        
+        Coin *coin = Coin.new;
+        coin.name = @"BTC";
+        coin.price = price;
+        
+        int intValue = coin.price.intValue;
+        
+        NSLog(@"%i", intValue);
         
     }] resume];
-    
-    
-    
     
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C1A413F211B1FD9005DF910 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A413E211B1FD9005DF910 /* Coin.m */; };
 		7C285F0F2118A46F00AE0795 /* JSONDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C285F0E2118A46F00AE0795 /* JSONDownloader.m */; };
 		7C3D589820FC9D05007BCCFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D589720FC9D05007BCCFC /* AppDelegate.m */; };
 		7C3D589E20FC9D05007BCCFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3D589C20FC9D05007BCCFC /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C1A413D211B1FD9005DF910 /* Coin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		7C1A413E211B1FD9005DF910 /* Coin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		7C285F0D2118A46F00AE0795 /* JSONDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONDownloader.h; sourceTree = "<group>"; };
 		7C285F0E2118A46F00AE0795 /* JSONDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONDownloader.m; sourceTree = "<group>"; };
 		7C3D589320FC9D05007BCCFC /* CoinPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +75,8 @@
 				7C3D58A520FC9D05007BCCFC /* main.m */,
 				7C285F0D2118A46F00AE0795 /* JSONDownloader.h */,
 				7C285F0E2118A46F00AE0795 /* JSONDownloader.m */,
+				7C1A413D211B1FD9005DF910 /* Coin.h */,
+				7C1A413E211B1FD9005DF910 /* Coin.m */,
 			);
 			path = CoinPrice;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C1A413F211B1FD9005DF910 /* Coin.m in Sources */,
 				7C285F0F2118A46F00AE0795 /* JSONDownloader.m in Sources */,
 				7C3D58A620FC9D05007BCCFC /* main.m in Sources */,
 				7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */,
