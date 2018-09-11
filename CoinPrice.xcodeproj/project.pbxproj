@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		7C1A413F211B1FD9005DF910 /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A413E211B1FD9005DF910 /* Coin.m */; };
 		7C285F0F2118A46F00AE0795 /* JSONDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C285F0E2118A46F00AE0795 /* JSONDownloader.m */; };
+		7C321258211DC2BE00705928 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C321257211DC2BE00705928 /* CollectionViewController.m */; };
 		7C3D589820FC9D05007BCCFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D589720FC9D05007BCCFC /* AppDelegate.m */; };
 		7C3D589E20FC9D05007BCCFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3D589C20FC9D05007BCCFC /* Main.storyboard */; };
 		7C3D58A020FC9D05007BCCFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C3D589F20FC9D05007BCCFC /* Assets.xcassets */; };
 		7C3D58A320FC9D05007BCCFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3D58A120FC9D05007BCCFC /* LaunchScreen.storyboard */; };
-		7C3D58A620FC9D05007BCCFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D58A520FC9D05007BCCFC /* main.m */; };
+		7C45ADCF2148315B0070A419 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C45ADCE2148315B0070A419 /* CollectionViewCell.m */; };
+		7C4E498621471205008924FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E498521471205008924FD /* main.m */; };
 		7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD829AD20FE073600EA4A4E /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +24,8 @@
 		7C1A413E211B1FD9005DF910 /* Coin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		7C285F0D2118A46F00AE0795 /* JSONDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONDownloader.h; sourceTree = "<group>"; };
 		7C285F0E2118A46F00AE0795 /* JSONDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONDownloader.m; sourceTree = "<group>"; };
+		7C321256211DC2BE00705928 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		7C321257211DC2BE00705928 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		7C3D589320FC9D05007BCCFC /* CoinPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C3D589620FC9D05007BCCFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7C3D589720FC9D05007BCCFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,7 +33,9 @@
 		7C3D589F20FC9D05007BCCFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C3D58A220FC9D05007BCCFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C3D58A420FC9D05007BCCFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C3D58A520FC9D05007BCCFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7C45ADCD2148315B0070A419 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		7C45ADCE2148315B0070A419 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		7C4E498521471205008924FD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CD829AC20FE073600EA4A4E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		7CD829AD20FE073600EA4A4E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,19 +70,23 @@
 		7C3D589520FC9D05007BCCFC /* CoinPrice */ = {
 			isa = PBXGroup;
 			children = (
+				7C4E498521471205008924FD /* main.m */,
 				7C3D589620FC9D05007BCCFC /* AppDelegate.h */,
 				7C3D589720FC9D05007BCCFC /* AppDelegate.m */,
 				7CD829AC20FE073600EA4A4E /* MainViewController.h */,
 				7CD829AD20FE073600EA4A4E /* MainViewController.m */,
-				7C3D589C20FC9D05007BCCFC /* Main.storyboard */,
-				7C3D589F20FC9D05007BCCFC /* Assets.xcassets */,
-				7C3D58A120FC9D05007BCCFC /* LaunchScreen.storyboard */,
-				7C3D58A420FC9D05007BCCFC /* Info.plist */,
-				7C3D58A520FC9D05007BCCFC /* main.m */,
+				7C321256211DC2BE00705928 /* CollectionViewController.h */,
+				7C321257211DC2BE00705928 /* CollectionViewController.m */,
 				7C285F0D2118A46F00AE0795 /* JSONDownloader.h */,
 				7C285F0E2118A46F00AE0795 /* JSONDownloader.m */,
 				7C1A413D211B1FD9005DF910 /* Coin.h */,
 				7C1A413E211B1FD9005DF910 /* Coin.m */,
+				7C45ADCD2148315B0070A419 /* CollectionViewCell.h */,
+				7C45ADCE2148315B0070A419 /* CollectionViewCell.m */,
+				7C3D589C20FC9D05007BCCFC /* Main.storyboard */,
+				7C3D589F20FC9D05007BCCFC /* Assets.xcassets */,
+				7C3D58A120FC9D05007BCCFC /* LaunchScreen.storyboard */,
+				7C3D58A420FC9D05007BCCFC /* Info.plist */,
 			);
 			path = CoinPrice;
 			sourceTree = "<group>";
@@ -153,8 +163,10 @@
 			files = (
 				7C1A413F211B1FD9005DF910 /* Coin.m in Sources */,
 				7C285F0F2118A46F00AE0795 /* JSONDownloader.m in Sources */,
-				7C3D58A620FC9D05007BCCFC /* main.m in Sources */,
+				7C321258211DC2BE00705928 /* CollectionViewController.m in Sources */,
 				7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */,
+				7C4E498621471205008924FD /* main.m in Sources */,
+				7C45ADCF2148315B0070A419 /* CollectionViewCell.m in Sources */,
 				7C3D589820FC9D05007BCCFC /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

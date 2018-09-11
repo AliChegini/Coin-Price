@@ -9,6 +9,11 @@
 #import "JSONDownloader.h"
 #import "Coin.h"
 
+// TODO: save the price in an array to use it later
+@interface JSONDownloader ()
+@property (strong, nonatomic) NSMutableArray *preparedCoin;
+
+@end
 
 @implementation JSONDownloader
 
@@ -51,10 +56,14 @@
         
         int intValue = coin.price.intValue;
         
-        NSLog(@"%i", intValue);
+        NSLog(@"%i USD", intValue);
+        self.preparedCoin = [[NSMutableArray alloc] initWithObjects:coin, nil];
+        //[self.preparedCoin addObject:[coin price]];
+        
+        // TODO: add recent date to Coin class
+        // Use the preparedCoin array to show data in each cell of collection View
         
     }] resume];
-    
 }
 
 

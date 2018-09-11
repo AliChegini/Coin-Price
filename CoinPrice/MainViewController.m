@@ -16,7 +16,11 @@
 
 @class JSONDownloader;
 
-@interface MainViewController ()
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate> {
+    NSMutableArray *coinArray;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -24,9 +28,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self arraySetup];
     
-    JSONDownloader *object = [[JSONDownloader alloc] init];
-    [object callAPI];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"myCell"];
+
+    
+    
     
 }
 
@@ -35,30 +42,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)arraySetup {
+    coinArray = [NSMutableArray arrayWithArray: @[@"BitCoin", @"Etherum", @"AltCoin"]];
+}
+
+// Idea for TODO list:
+// user taps on bitcoin then he will see collection view of USD, EUR, GBP, DKK
+// user chose a currency from collection view and will see the price
+
+
+
+
+
+
 #pragma mark - Table view data source
 
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return coinArray.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-*/
- 
- 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    cell.textLabel.text = coinArray[indexPath.row];
     return cell;
 }
-*/
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"cell is tapped %@", coinArray[indexPath.row]);
+    JSONDownloader *object = [[JSONDownloader alloc] init];
+    [object callAPI];
+    
+    [self performSegueWithIdentifier:@"collectionViewSegue" sender:self];
+}
+
+
+
 
 /*
 // Override to support conditional editing of the table view.
