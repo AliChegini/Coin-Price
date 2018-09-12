@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Coin.h"
 
 @interface CollectionViewController : UICollectionViewController
+
+@property (strong, nonatomic) Coin *coinObject;
 
 @end

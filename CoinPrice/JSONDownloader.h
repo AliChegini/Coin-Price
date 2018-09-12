@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Coin.h"
+
 
 @interface JSONDownloader : NSObject
 
--(void)callAPI;
-
+-(void)callAPI: (Coin *(^)(Coin *finalCoin))completion;
 
 @end

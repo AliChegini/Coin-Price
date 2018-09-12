@@ -13,8 +13,10 @@
 
 #import "MainViewController.h"
 #import "JSONDownloader.h"
+#import "Coin.h"
+#import "CollectionViewController.h"
 
-@class JSONDownloader;
+//@class JSONDownloader;
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray *coinArray;
@@ -51,10 +53,6 @@
 // user chose a currency from collection view and will see the price
 
 
-
-
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -74,13 +72,22 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell is tapped %@", coinArray[indexPath.row]);
-    JSONDownloader *object = [[JSONDownloader alloc] init];
-    [object callAPI];
     
     [self performSegueWithIdentifier:@"collectionViewSegue" sender:self];
 }
 
-
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+//    CollectionViewController *cvc = (CollectionViewController *)navController.topViewController;
+//
+//    JSONDownloader *object = [[JSONDownloader alloc] init];
+//    [object callAPI:^Coin *(Coin *finalCoin) {
+//        cvc.passedCoin = finalCoin;
+//        return finalCoin;
+//    }];
+//
+//}
 
 
 /*

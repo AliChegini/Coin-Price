@@ -7,13 +7,7 @@
 //
 
 #import "JSONDownloader.h"
-#import "Coin.h"
 
-// TODO: save the price in an array to use it later
-@interface JSONDownloader ()
-@property (strong, nonatomic) NSMutableArray *preparedCoin;
-
-@end
 
 @implementation JSONDownloader
 
@@ -26,12 +20,13 @@
     return self;
 }
 
-// method to call the API, fetch data, download json
--(void)callAPI{
+// method to call the API, to download JSON and return a Coin object
+-(void)callAPI: (Coin *(^)(Coin *finalCoin))completion {
     
     NSString *urlString = @"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF";
     
     NSURL *url = [NSURL URLWithString:urlString];
+    Coin *coin = Coin.new;
     
     // Asynchronous netwrok call
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -48,20 +43,14 @@
         NSString *mostRecentDate = keys.lastObject;
         NSDictionary *info = timeSeries[mostRecentDate];
         NSString *price = info[@"1a. price (USD)"];
-        NSLog(@"%@ - %@", mostRecentDate, price);
         
-        Coin *coin = Coin.new;
+        
         coin.name = @"BTC";
         coin.price = price;
+        coin.date = mostRecentDate;
         
-        int intValue = coin.price.intValue;
-        
-        NSLog(@"%i USD", intValue);
-        self.preparedCoin = [[NSMutableArray alloc] initWithObjects:coin, nil];
-        //[self.preparedCoin addObject:[coin price]];
-        
-        // TODO: add recent date to Coin class
-        // Use the preparedCoin array to show data in each cell of collection View
+        //NSLog(@"%@ --- %@", coin.date, coin.price);
+        completion(coin);
         
     }] resume];
 }

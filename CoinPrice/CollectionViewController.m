@@ -8,10 +8,12 @@
 
 #import "CollectionViewController.h"
 #import "CollectionViewCell.h"
+#import "JSONDownloader.h"
 
 @interface CollectionViewController ()
 
 @end
+
 
 @implementation CollectionViewController
 
@@ -26,13 +28,24 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
     // Do any additional setup after loading the view.
     self.collectionView.backgroundColor = [UIColor greenColor];
     
+    JSONDownloader *object = [[JSONDownloader alloc] init];
+    [object callAPI:^Coin *(Coin *finalCoin) {
+        self.coinObject = finalCoin;
+        NSLog(@"%@", self.coinObject.price);
+        
+        return finalCoin;
+    }];
+    
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -59,6 +72,10 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        cell.label.text = self.coinObject.price;
+//    });
+    //TODO: Custom cells and proper string construction for calling with different parameter, BTC, ETH and etc.
     cell.label.text = @"BTC/USD";
     
     return cell;
