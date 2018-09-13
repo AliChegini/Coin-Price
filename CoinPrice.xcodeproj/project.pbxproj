@@ -16,6 +16,7 @@
 		7C3D58A320FC9D05007BCCFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3D58A120FC9D05007BCCFC /* LaunchScreen.storyboard */; };
 		7C45ADCF2148315B0070A419 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C45ADCE2148315B0070A419 /* CollectionViewCell.m */; };
 		7C4E498621471205008924FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E498521471205008924FD /* main.m */; };
+		7C92F9F3214AE0AF00DE6D7A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C92F9F2214AE0AF00DE6D7A /* DetailViewController.m */; };
 		7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD829AD20FE073600EA4A4E /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		7C45ADCD2148315B0070A419 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		7C45ADCE2148315B0070A419 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		7C4E498521471205008924FD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7C92F9F1214AE0AF00DE6D7A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7C92F9F2214AE0AF00DE6D7A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7CD829AC20FE073600EA4A4E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		7CD829AD20FE073600EA4A4E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +80,8 @@
 				7CD829AD20FE073600EA4A4E /* MainViewController.m */,
 				7C321256211DC2BE00705928 /* CollectionViewController.h */,
 				7C321257211DC2BE00705928 /* CollectionViewController.m */,
+				7C92F9F1214AE0AF00DE6D7A /* DetailViewController.h */,
+				7C92F9F2214AE0AF00DE6D7A /* DetailViewController.m */,
 				7C285F0D2118A46F00AE0795 /* JSONDownloader.h */,
 				7C285F0E2118A46F00AE0795 /* JSONDownloader.m */,
 				7C1A413D211B1FD9005DF910 /* Coin.h */,
@@ -164,6 +169,7 @@
 				7C1A413F211B1FD9005DF910 /* Coin.m in Sources */,
 				7C285F0F2118A46F00AE0795 /* JSONDownloader.m in Sources */,
 				7C321258211DC2BE00705928 /* CollectionViewController.m in Sources */,
+				7C92F9F3214AE0AF00DE6D7A /* DetailViewController.m in Sources */,
 				7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */,
 				7C4E498621471205008924FD /* main.m in Sources */,
 				7C45ADCF2148315B0070A419 /* CollectionViewCell.m in Sources */,

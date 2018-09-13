@@ -11,6 +11,7 @@
 
 @interface CollectionViewController : UICollectionViewController
 
-@property (strong, nonatomic) Coin *coinObject;
+@property (strong, nonatomic) NSString *stringPassed;
 
 @end
+

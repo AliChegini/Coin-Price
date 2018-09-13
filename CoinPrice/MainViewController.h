@@ -11,15 +11,7 @@
 
 @interface MainViewController : UITableViewController
 
+@property (strong, nonatomic) NSString *string;
 
 @end
-
-
-
-
-
-
-
-
-
 

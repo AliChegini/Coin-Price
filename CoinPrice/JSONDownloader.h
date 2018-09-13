@@ -15,3 +15,4 @@
 -(void)callAPI: (Coin *(^)(Coin *finalCoin))completion;
 
 @end
+

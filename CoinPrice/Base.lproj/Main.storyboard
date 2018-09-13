@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -97,6 +98,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="label" destination="qlU-vD-wU9" id="bcC-DG-AZi"/>
+                                    <segue destination="fYC-xG-LSs" kind="showDetail" identifier="showDetailSegue" id="K0w-TL-EwH"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -109,6 +111,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qv8-kJ-C1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2502" y="618"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Uxc-2s-CSo">
+            <objects>
+                <viewController id="fYC-xG-LSs" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aeR-i5-mdz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-at-C38">
+                                <rect key="frame" x="20" y="284" width="335" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="5BQ-AR-uqu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qun-at-C38" firstAttribute="centerX" secondItem="aeR-i5-mdz" secondAttribute="centerX" id="9X2-z1-gDp"/>
+                            <constraint firstItem="qun-at-C38" firstAttribute="centerY" secondItem="aeR-i5-mdz" secondAttribute="centerY" id="Jo0-aa-u6W"/>
+                            <constraint firstItem="q82-gN-tab" firstAttribute="trailing" secondItem="qun-at-C38" secondAttribute="trailing" constant="20" id="qxj-j0-0BR"/>
+                            <constraint firstItem="qun-at-C38" firstAttribute="leading" secondItem="q82-gN-tab" secondAttribute="leading" constant="20" id="yDb-Cr-Les"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q82-gN-tab"/>
+                    </view>
+                    <connections>
+                        <outlet property="coinInfoLabel" destination="qun-at-C38" id="1ZX-Jn-K9X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbD-wa-nwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3294" y="618"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Eoh-8E-xGg">

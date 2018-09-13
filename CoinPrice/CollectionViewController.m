@@ -9,6 +9,7 @@
 #import "CollectionViewController.h"
 #import "CollectionViewCell.h"
 #import "JSONDownloader.h"
+#import "DetailViewController.h"
 
 @interface CollectionViewController ()
 
@@ -22,21 +23,17 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Do any additional setup after loading the view.
     self.collectionView.backgroundColor = [UIColor greenColor];
+
+//    JSONDownloader *object = [[JSONDownloader alloc] init];
+//    [object callAPI:^Coin *(Coin *finalCoin) {
+//        self.coinObject = finalCoin;
+//        NSLog(@"%@", self.coinObject.price);
+//
+//        return finalCoin;
+//    }];
     
-    JSONDownloader *object = [[JSONDownloader alloc] init];
-    [object callAPI:^Coin *(Coin *finalCoin) {
-        self.coinObject = finalCoin;
-        NSLog(@"%@", self.coinObject.price);
-        
-        return finalCoin;
-    }];
-    
-    
+
 }
 
 
@@ -47,15 +44,20 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    //[self performSegueWithIdentifier:@"showDetailSegue" sender:self];
 }
-*/
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //DetailViewController *dvc = [segue destinationViewController];
+
+}
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -72,44 +74,23 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        cell.label.text = self.coinObject.price;
-//    });
-    //TODO: Custom cells and proper string construction for calling with different parameter, BTC, ETH and etc.
-    cell.label.text = @"BTC/USD";
+    switch (indexPath.row) {
+        case 0:
+            cell.label.text = [NSString stringWithFormat:@"%@/USD", self.stringPassed];
+            break;
+        case 1:
+            cell.label.text = [NSString stringWithFormat:@"%@/EUR", self.stringPassed];
+            break;
+        case 2:
+            cell.label.text = [NSString stringWithFormat:@"%@/GBP", self.stringPassed];
+            break;
+        case 3:
+            cell.label.text = [NSString stringWithFormat:@"%@/DKK", self.stringPassed];
+            break;
+    }
     
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
