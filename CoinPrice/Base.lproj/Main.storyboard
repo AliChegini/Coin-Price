@@ -98,7 +98,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="label" destination="qlU-vD-wU9" id="bcC-DG-AZi"/>
-                                    <segue destination="fYC-xG-LSs" kind="showDetail" identifier="showDetailSegue" id="K0w-TL-EwH"/>
+                                    <segue destination="fYC-xG-LSs" kind="presentation" identifier="showDetailSegue" modalPresentationStyle="overCurrentContext" id="K0w-TL-EwH"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -122,6 +122,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-at-C38">
                                 <rect key="frame" x="20" y="284" width="335" height="100"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5BQ-AR-uqu"/>
                                 </constraints>

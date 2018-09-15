@@ -27,12 +27,33 @@
         
         return finalCoin;
     }];
-        
+    
+    
+    [self setupGesture];
+    
+    
     // TODO: Find a proper way to concatenate coin and market names to use for url
     // turncate float points
     // show all the data related to a coin properly.
+}
+
+
+-(void) setupGesture {
+    UITapGestureRecognizer *dismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+    dismiss.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:dismiss];
     
 }
+
+-(void)dismiss {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.01, 0.01);
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
