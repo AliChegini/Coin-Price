@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Coin.h"
+#import "ExchangeObject.h"
 
 @interface CollectionViewController : UICollectionViewController
 
 @property (strong, nonatomic) NSString *stringPassed;
+@property (strong, nonatomic) ExchangeObject *object;
 
 @end
 

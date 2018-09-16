@@ -12,7 +12,7 @@
 
 @interface JSONDownloader : NSObject
 
--(void)callAPI: (Coin *(^)(Coin *finalCoin))completion;
+-(void)callAPI:(NSString*)symbol :(NSString*)market :(Coin *(^)(Coin *finalCoin))completion;
 
 @end
 

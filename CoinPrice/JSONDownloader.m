@@ -21,9 +21,15 @@
 }
 
 // method to call the API, to download JSON and return a Coin object
--(void)callAPI: (Coin *(^)(Coin *finalCoin))completion {
+-(void)callAPI:(NSString*)symbol :(NSString*)market :(Coin *(^)(Coin *finalCoin))completion {
     
-    NSString *urlString = @"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF";
+    //NSString *urlString = @"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF";
+    
+    // [NSString stringWithFormat:@"%@/USD", self.stringPassed];
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=%@&market=%@&apikey=JMFWPJPRJ9QQTMOF", symbol, market];
+    
+    NSLog(@"%@", urlString);
     
     NSURL *url = [NSURL URLWithString:urlString];
     Coin *coin = Coin.new;
@@ -44,12 +50,10 @@
         NSDictionary *info = timeSeries[mostRecentDate];
         NSString *price = info[@"1a. price (USD)"];
         
-        
-        coin.name = @"BTC";
+        coin.name = symbol;
         coin.price = price;
         coin.date = mostRecentDate;
         
-        //NSLog(@"%@ --- %@", coin.date, coin.price);
         completion(coin);
         
     }] resume];

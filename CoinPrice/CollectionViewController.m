@@ -8,8 +8,8 @@
 
 #import "CollectionViewController.h"
 #import "CollectionViewCell.h"
-#import "JSONDownloader.h"
 #import "DetailViewController.h"
+
 
 @interface CollectionViewController ()
 
@@ -24,16 +24,7 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
     [super viewDidLoad];
     
     self.collectionView.backgroundColor = [UIColor greenColor];
-
-//    JSONDownloader *object = [[JSONDownloader alloc] init];
-//    [object callAPI:^Coin *(Coin *finalCoin) {
-//        self.coinObject = finalCoin;
-//        NSLog(@"%@", self.coinObject.price);
-//
-//        return finalCoin;
-//    }];
-    
-
+    self.object = ExchangeObject.new;
 }
 
 
@@ -44,18 +35,17 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 
 
 
-
 #pragma mark - Navigation
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    //[self performSegueWithIdentifier:@"showDetailSegue" sender:self];
+    [self performSegueWithIdentifier:@"showDetailSegue" sender:self];
 }
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //DetailViewController *dvc = [segue destinationViewController];
-
+    DetailViewController *dvc = [segue destinationViewController];
+    dvc.passedExchangeObject = self.object;
 }
 
 
@@ -65,7 +55,7 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
     return 1;
 }
 
-
+// Just looking for 4 markets value 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 4;
 }
@@ -73,19 +63,30 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    
+    
     // Configure the cell
+    // TODO: there is a bug here , always get back DKK, should be fixed
     switch (indexPath.row) {
         case 0:
             cell.label.text = [NSString stringWithFormat:@"%@/USD", self.stringPassed];
+            self.object.digitalCurrency = self.stringPassed;
+            self.object.market = @"USD";
             break;
         case 1:
             cell.label.text = [NSString stringWithFormat:@"%@/EUR", self.stringPassed];
+            self.object.digitalCurrency = self.stringPassed;
+            self.object.market = @"EUR";
             break;
         case 2:
             cell.label.text = [NSString stringWithFormat:@"%@/GBP", self.stringPassed];
+            self.object.digitalCurrency = self.stringPassed;
+            self.object.market = @"GBP";
             break;
         case 3:
             cell.label.text = [NSString stringWithFormat:@"%@/DKK", self.stringPassed];
+            self.object.digitalCurrency = self.stringPassed;
+            self.object.market = @"DKK";
             break;
     }
     

@@ -35,8 +35,6 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"myCell"];
 
     
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,12 +43,8 @@
 }
 
 -(void)arraySetup {
-    coinArray = [NSMutableArray arrayWithArray: @[@"BitCoin", @"Etherum", @"AltCoin"]];
+    coinArray = [NSMutableArray arrayWithArray: @[@"BTC", @"ETH", @"LTC", @"DASH", @"ZEC"]];
 }
-
-// Idea for TODO list:
-// user taps on bitcoin then he will see collection view of USD, EUR, GBP, DKK
-// user chose a currency from collection view and will see the price
 
 
 #pragma mark - Table view data source

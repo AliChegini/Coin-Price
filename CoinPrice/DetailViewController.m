@@ -19,14 +19,25 @@
     [super viewDidLoad];
     
     JSONDownloader *object = [[JSONDownloader alloc] init];
-    [object callAPI:^Coin *(Coin *finalCoin) {
-        
+    
+    // TODO: replace the hardcoded values with passed values
+    [object callAPI:self.passedExchangeObject.digitalCurrency :self.passedExchangeObject.market :^Coin *(Coin *finalCoin) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.coinInfoLabel.text = finalCoin.price;
+            NSLog(@"%@", self.passedExchangeObject.market);
         });
-        
+
         return finalCoin;
     }];
+    
+//    [object callAPI:^Coin *(Coin *finalCoin) {
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.coinInfoLabel.text = finalCoin.price;
+//        });
+//
+//        return finalCoin;
+//    }];
     
     
     [self setupGesture];
@@ -47,7 +58,7 @@
 
 -(void)dismiss {
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.01, 0.01);
     } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:YES completion:nil];

@@ -17,6 +17,7 @@
 		7C45ADCF2148315B0070A419 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C45ADCE2148315B0070A419 /* CollectionViewCell.m */; };
 		7C4E498621471205008924FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E498521471205008924FD /* main.m */; };
 		7C92F9F3214AE0AF00DE6D7A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C92F9F2214AE0AF00DE6D7A /* DetailViewController.m */; };
+		7CAF31FB214EAFAE00325EE8 /* ExchangeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF31FA214EAFAE00325EE8 /* ExchangeObject.m */; };
 		7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD829AD20FE073600EA4A4E /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		7C4E498521471205008924FD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C92F9F1214AE0AF00DE6D7A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7C92F9F2214AE0AF00DE6D7A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7CAF31F9214EAFAE00325EE8 /* ExchangeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeObject.h; sourceTree = "<group>"; };
+		7CAF31FA214EAFAE00325EE8 /* ExchangeObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeObject.m; sourceTree = "<group>"; };
 		7CD829AC20FE073600EA4A4E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		7CD829AD20FE073600EA4A4E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +89,8 @@
 				7C285F0E2118A46F00AE0795 /* JSONDownloader.m */,
 				7C1A413D211B1FD9005DF910 /* Coin.h */,
 				7C1A413E211B1FD9005DF910 /* Coin.m */,
+				7CAF31F9214EAFAE00325EE8 /* ExchangeObject.h */,
+				7CAF31FA214EAFAE00325EE8 /* ExchangeObject.m */,
 				7C45ADCD2148315B0070A419 /* CollectionViewCell.h */,
 				7C45ADCE2148315B0070A419 /* CollectionViewCell.m */,
 				7C3D589C20FC9D05007BCCFC /* Main.storyboard */,
@@ -170,6 +175,7 @@
 				7C285F0F2118A46F00AE0795 /* JSONDownloader.m in Sources */,
 				7C321258211DC2BE00705928 /* CollectionViewController.m in Sources */,
 				7C92F9F3214AE0AF00DE6D7A /* DetailViewController.m in Sources */,
+				7CAF31FB214EAFAE00325EE8 /* ExchangeObject.m in Sources */,
 				7CD829AE20FE073600EA4A4E /* MainViewController.m in Sources */,
 				7C4E498621471205008924FD /* main.m in Sources */,
 				7C45ADCF2148315B0070A419 /* CollectionViewCell.m in Sources */,
