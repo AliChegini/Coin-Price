@@ -10,11 +10,16 @@
 #import "Coin.h"
 #import "ExchangeObject.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController {
+    ExchangeObject *exchangeObject;
+}
+
+@property (strong, nonatomic) ExchangeObject *exchangeObject;
+
 
 @property (strong, nonatomic) Coin *coinInfo;
 @property (weak, nonatomic) IBOutlet UILabel *coinInfoLabel;
-@property (strong, nonatomic) ExchangeObject *passedExchangeObject;
+
 
 @end
 

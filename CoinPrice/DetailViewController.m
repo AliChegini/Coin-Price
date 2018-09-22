@@ -20,11 +20,17 @@
     
     JSONDownloader *object = [[JSONDownloader alloc] init];
     
-    // TODO: replace the hardcoded values with passed values
-    [object callAPI:self.passedExchangeObject.digitalCurrency :self.passedExchangeObject.market :^Coin *(Coin *finalCoin) {
+    
+    NSLog(@"%@ --- %@", self.exchangeObject.digitalCurrency, self.exchangeObject.market);
+    
+    
+    [object callAPI:self.exchangeObject.digitalCurrency :self.exchangeObject.market :^Coin *(Coin *finalCoin) {
+        
+        NSLog(@"%@ --- %@", self.exchangeObject.digitalCurrency, self.exchangeObject.market);
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             self.coinInfoLabel.text = finalCoin.price;
-            NSLog(@"%@", self.passedExchangeObject.market);
+            NSLog(@"%@", self.exchangeObject.market);
         });
 
         return finalCoin;

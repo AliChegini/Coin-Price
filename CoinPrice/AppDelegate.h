@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExchangeObject.h"
+#import "CollectionViewController.h"
+#import "DetailViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    ExchangeObject *exchangeObject;
+    CollectionViewController *cvc;
+    DetailViewController *dvc;
+    
+}
+
 
 @property (strong, nonatomic) UIWindow *window;
 

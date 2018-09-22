@@ -25,8 +25,6 @@
     
     //NSString *urlString = @"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF";
     
-    // [NSString stringWithFormat:@"%@/USD", self.stringPassed];
-    
     NSString *urlString = [NSString stringWithFormat:@"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=%@&market=%@&apikey=JMFWPJPRJ9QQTMOF", symbol, market];
     
     NSLog(@"%@", urlString);
@@ -45,6 +43,7 @@
         
         // Extracting required dictionary consist of time/dates
         NSDictionary *timeSeries = coinDictionary[@"Time Series (Digital Currency Intraday)"];
+        // getting the recent price using compare
         NSArray *keys = [[timeSeries allKeys] sortedArrayUsingSelector:@selector(compare:)];
         NSString *mostRecentDate = keys.lastObject;
         NSDictionary *info = timeSeries[mostRecentDate];
