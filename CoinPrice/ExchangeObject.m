@@ -10,4 +10,14 @@
 
 @implementation ExchangeObject
 
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (!self) {
+        self = [[ExchangeObject alloc] init];
+    }
+    return self;
+}
+
 @end

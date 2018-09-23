@@ -24,6 +24,8 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
     [super viewDidLoad];
     
     self.collectionView.backgroundColor = [UIColor greenColor];
+    
+    
 }
 
 
@@ -38,22 +40,35 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 // TODO: I need to find a better way to pass the data around
 // Look up singleton
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard *storyboard = self.storyboard;
+    DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    //self.view.window.rootViewController = dvc;
+    
     switch (indexPath.row) {
         case 0:
-            exchangeObject.digitalCurrency = self.stringPassed;
-            exchangeObject.market = @"USD";
+            self.exchangeObject = [[ExchangeObject alloc] init];
+            self.exchangeObject.digitalCurrency = self.stringPassed;
+            self.exchangeObject.market = @"USD";
+            dvc.exchangeObject = self.exchangeObject;
             break;
         case 1:
-            exchangeObject.digitalCurrency = self.stringPassed;
-            exchangeObject.market = @"EUR";
+            self.exchangeObject = [[ExchangeObject alloc] init];
+            self.exchangeObject.digitalCurrency = self.stringPassed;
+            self.exchangeObject.market = @"EUR";
+            dvc.exchangeObject = self.exchangeObject;
             break;
         case 2:
-            exchangeObject.digitalCurrency = self.stringPassed;
-            exchangeObject.market = @"GBP";
+            self.exchangeObject = [[ExchangeObject alloc] init];
+            self.exchangeObject.digitalCurrency = self.stringPassed;
+            self.exchangeObject.market = @"GBP";
+            dvc.exchangeObject = self.exchangeObject;
             break;
         case 3:
-            exchangeObject.digitalCurrency = self.stringPassed;
-            exchangeObject.market = @"DKK";
+            self.exchangeObject = [[ExchangeObject alloc] init];
+            self.exchangeObject.digitalCurrency = self.stringPassed;
+            self.exchangeObject.market = @"DKK";
+            dvc.exchangeObject = self.exchangeObject;
             break;
     }
     
@@ -61,10 +76,13 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DetailViewController *dvc = [segue destinationViewController];
-    dvc.exchangeObject = exchangeObject;
-}
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//
+//    DetailViewController *dvc = [segue destinationViewController];
+//    dvc.exchangeObject = self.exchangeObject;
+//
+//}
 
 
 #pragma mark <UICollectionViewDataSource>

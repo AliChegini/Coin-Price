@@ -10,9 +10,7 @@
 #import "Coin.h"
 #import "ExchangeObject.h"
 
-@interface DetailViewController : UIViewController {
-    ExchangeObject *exchangeObject;
-}
+@interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) ExchangeObject *exchangeObject;
 

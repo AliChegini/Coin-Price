@@ -11,13 +11,7 @@
 #import "CollectionViewController.h"
 #import "DetailViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    ExchangeObject *exchangeObject;
-    CollectionViewController *cvc;
-    DetailViewController *dvc;
-    
-}
-
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

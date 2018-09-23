@@ -10,9 +10,7 @@
 #import "Coin.h"
 #import "ExchangeObject.h"
 
-@interface CollectionViewController : UICollectionViewController {
-    ExchangeObject *exchangeObject;
-}
+@interface CollectionViewController : UICollectionViewController 
 
 // object to hold coin name and market name --- BTC vs USD
 @property (strong, nonatomic) ExchangeObject *exchangeObject;

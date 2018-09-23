@@ -115,7 +115,7 @@
         <!--Detail View Controller-->
         <scene sceneID="Uxc-2s-CSo">
             <objects>
-                <viewController id="fYC-xG-LSs" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="fYC-xG-LSs" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aeR-i5-mdz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

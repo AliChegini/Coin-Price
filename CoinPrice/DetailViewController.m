@@ -21,12 +21,12 @@
     JSONDownloader *object = [[JSONDownloader alloc] init];
     
     
-    NSLog(@"%@ --- %@", self.exchangeObject.digitalCurrency, self.exchangeObject.market);
+    NSLog(@"Inside DetailVieController --- %@", self.exchangeObject.market);
     
     
     [object callAPI:self.exchangeObject.digitalCurrency :self.exchangeObject.market :^Coin *(Coin *finalCoin) {
         
-        NSLog(@"%@ --- %@", self.exchangeObject.digitalCurrency, self.exchangeObject.market);
+        //NSLog(@"%@ --- %@", self.exchangeObject.digitalCurrency, self.exchangeObject.market);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.coinInfoLabel.text = finalCoin.price;

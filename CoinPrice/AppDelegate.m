@@ -18,8 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    cvc.exchangeObject = exchangeObject;
-    dvc.exchangeObject = exchangeObject;
+//    cvc.exchangeObject = exchangeObject;
+//    dvc.exchangeObject = exchangeObject;
     
     return YES;
 }
