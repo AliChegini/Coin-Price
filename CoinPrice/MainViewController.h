@@ -11,7 +11,7 @@
 
 @interface MainViewController : UITableViewController
 
-@property (strong, nonatomic) NSString *string;
+@property (strong, nonatomic) NSString *coinPickedByUser;
 
 @end
 

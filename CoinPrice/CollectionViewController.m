@@ -22,10 +22,7 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.collectionView.backgroundColor = [UIColor greenColor];
-    
-    
 }
 
 
@@ -37,52 +34,39 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 
 #pragma mark - Navigation
 
-// TODO: I need to find a better way to pass the data around
-// Look up singleton
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UIStoryboard *storyboard = self.storyboard;
     DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    //self.view.window.rootViewController = dvc;
+    
+    // Local variable to hold exchange pair temporary
+    ExchangeObject *localExchangePair = [[ExchangeObject alloc] init];
     
     switch (indexPath.row) {
         case 0:
-            self.exchangeObject = [[ExchangeObject alloc] init];
-            self.exchangeObject.digitalCurrency = self.stringPassed;
-            self.exchangeObject.market = @"USD";
-            dvc.exchangeObject = self.exchangeObject;
+            localExchangePair.digitalCurrency = self.coinPickedByUser;
+            localExchangePair.market = @"USD";
+            dvc.exchangePair = localExchangePair;
             break;
         case 1:
-            self.exchangeObject = [[ExchangeObject alloc] init];
-            self.exchangeObject.digitalCurrency = self.stringPassed;
-            self.exchangeObject.market = @"EUR";
-            dvc.exchangeObject = self.exchangeObject;
+            localExchangePair.digitalCurrency = self.coinPickedByUser;
+            localExchangePair.market = @"EUR";
+            dvc.exchangePair = localExchangePair;
             break;
         case 2:
-            self.exchangeObject = [[ExchangeObject alloc] init];
-            self.exchangeObject.digitalCurrency = self.stringPassed;
-            self.exchangeObject.market = @"GBP";
-            dvc.exchangeObject = self.exchangeObject;
+            localExchangePair.digitalCurrency = self.coinPickedByUser;
+            localExchangePair.market = @"GBP";
+            dvc.exchangePair = localExchangePair;
             break;
         case 3:
-            self.exchangeObject = [[ExchangeObject alloc] init];
-            self.exchangeObject.digitalCurrency = self.stringPassed;
-            self.exchangeObject.market = @"DKK";
-            dvc.exchangeObject = self.exchangeObject;
+            localExchangePair.digitalCurrency = self.coinPickedByUser;
+            localExchangePair.market = @"DKK";
+            dvc.exchangePair = localExchangePair;
             break;
     }
     
-    //[self performSegueWithIdentifier:@"showDetailSegue" sender:self];
+    [self.navigationController pushViewController: dvc animated:YES];
 }
-
-
-
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//
-//    DetailViewController *dvc = [segue destinationViewController];
-//    dvc.exchangeObject = self.exchangeObject;
-//
-//}
 
 
 #pragma mark <UICollectionViewDataSource>
@@ -99,21 +83,19 @@ static NSString * const reuseIdentifier = @"CollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    
-    // Configure the cell
-    // TODO: there is a bug here , always get back DKK, should be fixed
+    // Configuring cells
     switch (indexPath.row) {
         case 0:
-            cell.label.text = [NSString stringWithFormat:@"%@/USD", self.stringPassed];
+            cell.label.text = [NSString stringWithFormat:@"%@/USD", self.coinPickedByUser];
             break;
         case 1:
-            cell.label.text = [NSString stringWithFormat:@"%@/EUR", self.stringPassed];
+            cell.label.text = [NSString stringWithFormat:@"%@/EUR", self.coinPickedByUser];
             break;
         case 2:
-            cell.label.text = [NSString stringWithFormat:@"%@/GBP", self.stringPassed];
+            cell.label.text = [NSString stringWithFormat:@"%@/GBP", self.coinPickedByUser];
             break;
         case 3:
-            cell.label.text = [NSString stringWithFormat:@"%@/DKK", self.stringPassed];
+            cell.label.text = [NSString stringWithFormat:@"%@/DKK", self.coinPickedByUser];
             break;
     }
     

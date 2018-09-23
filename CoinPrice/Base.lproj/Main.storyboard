@@ -62,7 +62,7 @@
         <!--Collection View Controller-->
         <scene sceneID="iQU-1T-r1j">
             <objects>
-                <collectionViewController id="JJE-rs-X6y" customClass="CollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CollectionViewController" id="JJE-rs-X6y" customClass="CollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="03V-Ja-pjg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="label" destination="qlU-vD-wU9" id="bcC-DG-AZi"/>
-                                    <segue destination="fYC-xG-LSs" kind="presentation" identifier="showDetailSegue" modalPresentationStyle="overCurrentContext" id="K0w-TL-EwH"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -121,14 +120,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-at-C38">
-                                <rect key="frame" x="20" y="284" width="335" height="100"/>
+                                <rect key="frame" x="20" y="1" width="335" height="666"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="5BQ-AR-uqu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -136,6 +132,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qun-at-C38" firstAttribute="centerX" secondItem="aeR-i5-mdz" secondAttribute="centerX" id="9X2-z1-gDp"/>
+                            <constraint firstItem="q82-gN-tab" firstAttribute="bottom" secondItem="qun-at-C38" secondAttribute="bottom" id="FHt-dL-ZZD"/>
                             <constraint firstItem="qun-at-C38" firstAttribute="centerY" secondItem="aeR-i5-mdz" secondAttribute="centerY" id="Jo0-aa-u6W"/>
                             <constraint firstItem="q82-gN-tab" firstAttribute="trailing" secondItem="qun-at-C38" secondAttribute="trailing" constant="20" id="qxj-j0-0BR"/>
                             <constraint firstItem="qun-at-C38" firstAttribute="leading" secondItem="q82-gN-tab" secondAttribute="leading" constant="20" id="yDb-Cr-Les"/>

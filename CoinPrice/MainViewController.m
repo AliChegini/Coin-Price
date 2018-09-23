@@ -10,13 +10,9 @@
 // API Example call
 // https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=BTC&market=USD&apikey=JMFWPJPRJ9QQTMOF
 
-
 #import "MainViewController.h"
-#import "JSONDownloader.h"
 #import "Coin.h"
 #import "CollectionViewController.h"
-
-//@class JSONDownloader;
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray *coinArray;
@@ -66,7 +62,7 @@
 #pragma mark - Navigation
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.string = coinArray[indexPath.row];
+    self.coinPickedByUser = coinArray[indexPath.row];
     NSLog(@"cell is tapped %@", coinArray[indexPath.row]);
     
     [self performSegueWithIdentifier:@"collectionViewSegue" sender:self];
@@ -75,7 +71,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CollectionViewController *cvc = [segue destinationViewController];
-    cvc.stringPassed = self.string;
+    cvc.coinPickedByUser = self.coinPickedByUser;
 }
 
 

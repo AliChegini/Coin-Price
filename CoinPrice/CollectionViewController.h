@@ -7,17 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Coin.h"
-#import "ExchangeObject.h"
 
 @interface CollectionViewController : UICollectionViewController 
 
-// object to hold coin name and market name --- BTC vs USD
-@property (strong, nonatomic) ExchangeObject *exchangeObject;
-
 // coin name to pass from table view to collection view
-@property (strong, nonatomic) NSString *stringPassed;
-
+@property (strong, nonatomic) NSString *coinPickedByUser;
 
 @end
 

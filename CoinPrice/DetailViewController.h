@@ -7,17 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Coin.h"
 #import "ExchangeObject.h"
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) ExchangeObject *exchangeObject;
+@property (strong, nonatomic) ExchangeObject *exchangePair;
 
-
-@property (strong, nonatomic) Coin *coinInfo;
 @property (weak, nonatomic) IBOutlet UILabel *coinInfoLabel;
 
 
 @end
-

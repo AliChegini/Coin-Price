@@ -20,38 +20,17 @@
     
     JSONDownloader *object = [[JSONDownloader alloc] init];
     
-    
-    NSLog(@"Inside DetailVieController --- %@", self.exchangeObject.market);
-    
-    
-    [object callAPI:self.exchangeObject.digitalCurrency :self.exchangeObject.market :^Coin *(Coin *finalCoin) {
-        
-        //NSLog(@"%@ --- %@", self.exchangeObject.digitalCurrency, self.exchangeObject.market);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.coinInfoLabel.text = finalCoin.price;
-            NSLog(@"%@", self.exchangeObject.market);
-        });
+    [object callAPI:self.exchangePair.digitalCurrency :self.exchangePair.market :^Coin *(Coin *finalCoin) {
 
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *allInfo = [NSString stringWithFormat:@" %@/%@ \n%@ \n%@", self.exchangePair.digitalCurrency, self.exchangePair.market, [finalCoin.price substringToIndex:8], finalCoin.date];
+            self.coinInfoLabel.text = allInfo;
+        });
         return finalCoin;
     }];
     
-//    [object callAPI:^Coin *(Coin *finalCoin) {
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.coinInfoLabel.text = finalCoin.price;
-//        });
-//
-//        return finalCoin;
-//    }];
-    
-    
     [self setupGesture];
     
-    
-    // TODO: Find a proper way to concatenate coin and market names to use for url
-    // turncate float points
-    // show all the data related to a coin properly.
 }
 
 
@@ -59,15 +38,15 @@
     UITapGestureRecognizer *dismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     dismiss.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:dismiss];
-    
 }
 
+
 -(void)dismiss {
-    
     [UIView animateWithDuration:0.4 animations:^{
         self.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.01, 0.01);
     } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:NO];
     }];
 }
 
